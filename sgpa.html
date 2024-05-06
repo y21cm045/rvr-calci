@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SGPA Calculator</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    min-height: 100vh; /* Ensure the container takes up the full viewport height */
+    margin: 0;
+   }
+    .container {
+      width: 800px;
+      height:auto;
+      padding: 20px;
+      border: 2px solid rgb(255, 176, 0);
+      background-color: rgb(251, 251, 214);
+      border-radius: 4px;
+      display: grid;
+      grid-template-rows: repeat(11, 1fr);
+      grid-gap: 10px;
+    }
+    button {
+      max-width: 170px;
+      padding: 10px 20px;
+      margin: 0;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      justify-self: center;
+      grid-row: 15; 
+      background-color: #3ab73a;
+    }
+    .rownum{
+      justify-self: center; 
+      grid-row: 13;
+    }
+    button:hover {
+      opacity: 0.8;
+      background-color: #0c860c;
+    }
+    .subject {
+      margin-bottom: 10px;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .heading {
+      text-align: center;
+      margin: 30px;
+      font-size: 24px;
+      color: red;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: red;
+    }
+    select,
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      .heading {
+        font-size: 20px;
+        margin: 20px;
+      }
+      button {
+        font-size: 14px;
+      }
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">SGPA Calculator</h1>
+    <div class="grid-container">
+      <div class="subject">
+        <label for="subject1">Subject 1:</label>
+        <select id="subject1">
+          <option value="" disabled selected>Select your Option</option>
+          <option value="A+">A+</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+        </select>
+      </div>
+      <div class="subject">
+        <label for="credits1">Subject Credits:</label>
+        <input type="text" id="credits1" value="3">
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="subject">
+        <label for="subject2">Subject 2:</label>
+        <select id="subject2">
+          <option value="" disabled selected>Select your Option</option>
+          <option value="A+">A+</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+        </select>
+      </div>
+      <div class="subject">
+        <label for="credits2">Subject Credits:</label>
+        <input type="text" id="credits2" value="3">
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="subject">
+        <label for="subject3">Subject 3:</label>
+        <select id="subject3">
+          <option value="" disabled selected>Select your Option</option>
+          <option value="A+">A+</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+        </select>
+      </div>
+      <div class="subject">
+        <label for="credits3">Subject Credits:</label>
+        <input type="text" id="credits3" value="3">
+      </div>
+    </div>
+    <div class="grid-container">
+        <div class="subject">
+          <label for="subject4">Subject 4:</label>
+          <select id="subject4">
+            <option value="" disabled selected>Select your Option</option>  
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+          </select>
+        </div>
+        <div class="subject">
+          <label for="credits4">Subject Credits:</label>
+          <input type="text" id="credits4" value="3">
+        </div>
+      </div>
+      <div class="grid-container">
+        <div class="subject">
+          <label for="subject5">Subject 5:</label>
+          <select id="subject5">
+            <option value="" disabled selected>Select your Option</option>  
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+          </select>
+        </div>
+        <div class="subject">
+          <label for="credits5">Subject Credits:</label>
+          <input type="text" id="credits5" value="3">
+        </div>
+      </div>
+      <div class="grid-container">
+        <div class="subject">
+          <label for="subject6">Subject 6:</label>
+          <select id="subject6">
+            <option value="" disabled selected>Select your Option</option>  
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+          </select>
+        </div>
+        <div class="subject">
+          <label for="credits6">Subject Credits:</label>
+          <input type="text" id="credits6" value="1.5">
+        </div>
+      </div>
+      <div class="grid-container">
+        <div class="subject">
+          <label for="subject7">Subject 7:</label>
+          <select id="subject7">
+            <option value="" disabled selected>Select your Option</option>  
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+          </select>
+        </div>
+        <div class="subject">
+          <label for="credits7">Subject Credits:</label>
+          <input type="text" id="credits7" value="1.5">
+        </div>
+      </div>
+      <div class="grid-container">
+        <div class="subject">
+          <label for="subject8">Subject 8:</label>
+          <select id="subject8">
+            <option value="" disabled selected>Select your Option</option>  
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+          </select>
+        </div>
+        <div class="subject">
+          <label for="credits8">Subject Credits:</label>
+          <input type="text" id="credits8" value="1.5">
+        </div>
+      </div>
+      <div class="grid-container">
+        <div class="subject">
+          <label for="subject9">Subject 9:</label>
+          <select id="subject9">
+            <option value="" disabled selected>Select your Option</option>
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+          </select>
+        </div>
+        <div class="subject">
+          <label for="credits9">Subject Credits:</label>
+          <input type="text" id="credits9" value="2">
+        </div>
+      </div>
+      <div class="grid-container">
+        <div class="subject">
+          <label for="subject10">Subject 10:</label>
+          <select id="subject10">
+            <option value="" disabled selected>Select your Option</option>  
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+          </select>
+        </div>
+        <div class="subject">
+          <label for="credits10">Subject Credits:</label>
+          <input type="text" id="credits10" value="0">
+        </div>
+      </div>
+      <div id="result" class="rownum"></div>
+      <button onclick="DisplaySGPA()">Calculate</button>
+  </div>
+  
+  <script>
+    let credits=0;
+    function calculateCredits(subjectId, creditsId) {
+      const grade = document.getElementById(subjectId).value;
+      const cred = parseFloat(document.getElementById(creditsId).value);
+      switch (grade) {
+        case "A+":
+          credits += 10 * cred;
+          break;
+        case "A":
+          credits += 9 * cred;
+          break;
+        case "B":
+          credits += 8 * cred;
+          break;
+        case "C":
+          credits += 7 * cred;
+          break;
+        case "D":
+          credits += 6 * cred;
+          break;
+        case "E":
+          credits += 5 * cred;
+          break;
+        case "F":
+          credits += 0 * cred;
+          break;
+        default:
+          credits += 0; 
+          break;
+      }
+    }
+    function getTotalCredits() {
+    let totalCredits = 0;
+    // Loop through each subject and sum up the credits
+    for (let i = 1; i <= 10; i++) {
+        const credits = parseFloat(document.getElementById('credits' + i).value);
+        if (!isNaN(credits)) {
+            totalCredits += credits;
+        }
+    }
+    return totalCredits;
+    }
+    function DisplaySGPA() {
+    let totalCredits = getTotalCredits();
+    let sgpaCredits = 0; // Initialize total credits for calculating SGPA
+
+    for (let i = 1; i <= 10; i++) {
+        calculateCredits('subject' + i, 'credits' + i);
+    }
+
+    const sgpa = (credits / totalCredits).toFixed(2);
+    credits = 0;
+    document.getElementById('result').innerHTML = '<h3 style="text-align:center; color:green;">Your SGPA Score is ' + sgpa + '</h3>';
+    }
+  </script>
+</body>
+</html>

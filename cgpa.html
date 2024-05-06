@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CGPA Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f5f5;
+      min-height: 100vh; /* Ensure the container takes up the full viewport height */
+      margin: 0;
+    }
+    .container {
+      width: 400px;
+      padding: 20px;
+      border: 2px solid rgb(255, 176, 0);
+      background-color: rgb(251, 251, 214);
+      border-radius: 4px;
+      display: grid;
+      grid-gap: 10px;
+    }
+    .heading {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: red;
+    }
+    label {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 3px;
+      color: red;
+    }
+    select, input[type="number"] {
+      width: 95%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      max-width: 200px;
+      padding: 10px 20px;
+      margin: 0 auto;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      background-color: #3ab73a;
+    }
+    button:hover {
+      opacity: 0.8;
+      background-color: #0c860c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">CGPA Calculator</h1>
+    <label for="semesters">Number of Semesters Completed:</label>
+    <select id="semesters" onchange="addInputBoxes()">
+      <option value="" disabled selected>Select number of semesters</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+    </select>
+    <div id="inputBoxes"></div>
+    <div id="result"></div>
+    <button onclick="calculateSGPA()">Calculate SGPA</button>
+  </div>
+  <script>
+    function addInputBoxes() {
+      const semesters = parseInt(document.getElementById('semesters').value);
+      const inputBoxesDiv = document.getElementById('inputBoxes');
+      inputBoxesDiv.innerHTML = ''; // Clear previous input boxes
+      for (let i = 1; i <= semesters; i++) {
+        const label = document.createElement('label');
+        label.textContent = 'Semester ' + i + ' SGPA:';
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.min = '0';
+        input.max = '10';
+        input.step = '0.01';
+        input.id = 'cgpa_' + i;
+        inputBoxesDiv.appendChild(label);
+        inputBoxesDiv.appendChild(input);
+      }
+    }
+    function roundTo(num, precision) {
+        const factor = Math.pow(10, precision)
+        return Math.round(num * factor) / factor
+    }
+
+    function calculateSGPA() {
+      const semesters = parseInt(document.getElementById('semesters').value);
+      let totalCGPA = 0;
+      for (let i = 1; i <= semesters; i++) {
+        const semesterCGPA = parseFloat(document.getElementById('cgpa_' + i).value);
+        if (isNaN(semesterCGPA) || semesterCGPA < 0 || semesterCGPA > 10) {
+          document.getElementById('result').innerHTML = '<h3 style="text-align:center; color:red;">Enter a valid CGPA for Semester ' + i + '</h3>';
+          return;
+        }
+        totalCGPA += semesterCGPA;
+      }
+      const sgpa = totalCGPA / semesters;
+      document.getElementById('result').innerHTML = '<h3 style="text-align:center; color:green;">Your CGPA Score is ' + roundTo(sgpa,2) + '</h3>';
+    }
+  </script>
+</body>
+</html>
